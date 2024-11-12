@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6B73FF 0%, #fafafa 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 110vh;
+            margin: 0;
+            color: #fff;
+        }
+
+        /* Login Container */
+        .login-container {
+            background: rgba(255, 255, 255, 0.89);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            color: #333;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* Form Styles */
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-container input,
+        .login-container select {
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+            color: #333;
+            background: #f9f9f9;
+        }
+
+        .login-container input::placeholder {
+            color: #888;
+        }
+
+        .login-container button {
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .login-container button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .login-container button:active {
+            background-color: #004085;
+        }
+
+        .login-container select {
+            appearance: none;
+            background: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" fill="black"/></svg>') no-repeat right 15px center;
+            background-size: 12px;
+            color: #333;
+        }
+
+        .login-container select option {
+            color: #333;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 30px;
+                width: 90%;
+            }
+
+            .login-container h2 {
+                font-size: 24px;
+            }
+
+            .login-container input,
+            .login-container button,
+            .login-container select {
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm" action="adminnav.php" method="post">
+        <select id="userType" name="usertype" required>
+            <option value="" disabled selected>Select User Type</option>
+            <option value="a">Admin</option>
+            <option value="s">Staff</option>
+        </select>
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <!-- <button type="button" onclick="login()">Login</button> -->
+         <button type="submit">Login</button>
+    </form>
+</div>
+
+<!-- <script>
+    function login() {
+        const userType = document.getElementById('userType').value;
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Simulate login validation
+        if (username === "admin" && password === "admin123" && userType === "admin"||username === "staff" && password === "staff123" && userType === "staff") 
+        {
+            window.location.href = "admin.php"; // Redirect to staff dashboard
+        } else {
+            alert("Invalid username, password, or user type.");
+        }
+    }
+</script> -->

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #343a40;
+            color: #fff;
+            padding: 10px;
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+        }
+        .sidebar a:hover {
+            background-color: #495057;
+        }
+        .sidebar .nav-item .nav-link {
+            padding-left: 20px;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h3>Admin Menu</h3>
+        <div class="nav flex-column">
+            <a href="#staff-submenu" data-toggle="collapse">Staff</a>
+            <div id="staff-submenu" class="collapse">
+                <a class="nav-link" href="#staff-create">Create</a>
+                <a class="nav-link" href="#staff-view">View</a>
+            </div>
+            <a href="#product-submenu" data-toggle="collapse">Product</a>
+            <div id="product-submenu" class="collapse">
+                <a class="nav-link" href="#product-create">Create</a>
+                <a class="nav-link" href="#product-view">View</a>
+            </div>
+            <a href="studentdet1.html">Student Details</a>
+            <a href="#report">Report</a>
+            <a href="#change-password">Change Password</a>
+            <a href="#logout">Logout</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div id="staff-create">
+            <h2>Staff: Create</h2>
+            <p>Content for creating staff.</p>
+        </div>
+        <div id="staff-view">
+            <h2>Staff: View</h2>
+            <p>Content for viewing staff.</p>
+        </div>
+        <div id="product-create">
+            <h2>Product: Create</h2>
+            <p>Content for creating products.</p>
+        </div>
+        <div id="product-view">
+            <h2>Product: View</h2>
+            <p>Content for viewing products.</p>
+        </div>
+        <div id="student-details">
+            <h2>Student Details</h2>
+            <p>Content for student details.</p>
+        </div>
+        <div id="report">
+            <h2>Report</h2>
+            <p>Content for reports.</p>
+        </div>
+        <div id="change-password">
+            <h2>Change Password</h2>
+            <p>Content for changing password.</p>
+        </div>
+        <div id="logout">
+            <h2>Logout</h2>
+            <p>Content for logout.</p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

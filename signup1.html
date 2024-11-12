@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Signup</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6B73FF 0%, #fafafc 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 110vh;
+            margin: 0;
+            color: #fff;
+        }
+
+        /* Signup Container */
+        .signup-container {
+            background: rgba(255, 255, 255, 0.89);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            color: #333;
+        }
+
+        .signup-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* Form Styles */
+        .signup-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .signup-container input,
+        .signup-container select {
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+            color: #333;
+            background: #f9f9f9;
+        }
+
+        .signup-container input::placeholder {
+            color: #888;
+        }
+
+        .signup-container button {
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background-color: #28A745;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .signup-container button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        .signup-container button:active {
+            background-color: #1e7e34;
+        }
+
+        .signup-container select {
+            appearance: none;
+            background: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" fill="black"/></svg>') no-repeat right 15px center;
+            background-size: 12px;
+            color: #333;
+        }
+
+        .signup-container select option {
+            color: #333;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 480px) {
+            .signup-container {
+                padding: 30px;
+                width: 90%;
+            }
+
+            .signup-container h2 {
+                font-size: 24px;
+            }
+
+            .signup-container input,
+            .signup-container button,
+            .signup-container select {
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="signup-container">
+    <h2>Register</h2>
+    <form id="signupForm" action="register.php" method="post">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="text" name="usn" placeholder="USN Number"  maxlength="10" >
+        <select name="department" required>
+            <option value="" disabled selected>Select Department</option>
+            <option value="cs">Computer Science</option>
+            <option value="mech">Mechanical Engineering</option>
+            <option value="ec">Electronics & Communication</option>
+            <option value="mca">MCA</option>
+            <option value="mba">MBA</option>
+        </select>
+        <select name="year" required>
+            <option value="" disabled selected>Select Year</option>
+            <option value="1">First Year</option>
+            <option value="2">Second Year</option>
+            <option value="3">Third Year</option>
+            <option value="4">Fourth Year</option>
+        </select>
+        <input type="tel" name="mobile" placeholder="Mobile Number" required pattern="[0-9]{10}" maxlength="10">
+        <input type="email" name="email" placeholder="Email" required pattern="(?=.*[!#$%&'*+/=?^_`{|}~-])[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Email must contain at least one special character (!, #, $, etc.).">
+        <input type="password" name="password" placeholder="Password"  maxlength="8">
+        <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+                <!-- <button type="button" onclick="register()">Register</button> -->
+         <button type="submit">Register</button>
+    </form>
+</div>
+
+<script>
+    function register() {
+    //     const username = document.getElementById('username').value;
+    //     const usn = document.getElementById('usn').value;
+    //     const department = document.getElementById('department').value;
+    //     const year = document.getElementById('year').value;
+    //     const mobile = document.getElementById('mobile').value;
+    //     const email = document.getElementById('email').value;
+    //     const password = document.querySelector('input[name="password"]').value;
+    // const confirmPassword = document.querySelector('input[name="confirmPassword"]').value;
+
+    // const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$/;
+
+        // Simple form validation
+        if (!passwordPattern.test(password)) {
+        alert("Password must be at least 8 characters long, and include at least one uppercase letter, one lowercase letter, one digit, and one special character.");
+        e.preventDefault(); // Prevent form submission
+    } else if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        e.preventDefault(); // Prevent form submission
+    }
+        // Simulate successful registration
+        alert(`Welcome, ${username}! Registration successful.`);
+        window.location.href = "login.html"; // Redirect to welcome page
+    }
+
+</script>
+
+</body>
+</html>

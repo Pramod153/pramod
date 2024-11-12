@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department Search and Select</title>
+    <style>
+        #select {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <label for="departmentSearch">Search Department:</label>
+    <input type="text" id="departmentSearch" oninput="filterDepartments()">
+
+    <select name="select" id="select" size="5" onclick="selectDepartment()">
+        <option value="CS">CS</option>
+        <option value="EC">EC</option>
+        <option value="Mechanical">Mechanical</option>
+        <option value="MCA">MCA</option>
+        <option value="MBA">MBA</option>
+    </select>
+
+    <script>
+        const departments = [
+            { value: "CS", label: "CS" },
+            { value: "EC", label: "EC" },
+            { value: "Mechanical", label: "Mechanical" },
+            { value: "MCA", label: "MCA" },
+            { value: "MBA", label: "MBA" }
+        ];
+
+        function filterDepartments() {
+            const searchInput = document.getElementById('departmentSearch').value.toLowerCase();
+            const select = document.getElementById('select');
+
+            // Clear the current options
+            select.innerHTML = '';
+
+            // Filter the departments based on the search input
+            const filteredDepartments = departments.filter(department => 
+                department.label.toLowerCase().includes(searchInput)
+            );
+
+            // Add the filtered options to the select element
+            filteredDepartments.forEach(department => {
+                const option = document.createElement('option');
+                option.value = department.value;
+                option.textContent = department.label;
+                select.appendChild(option);
+            });
+        }
+
+        function selectDepartment() {
+            const select = document.getElementById('select');
+            const selectedValue = select.value;
+            alert('You selected: ' + selectedValue);
+        }
+    </script>
+</body>
+</html>

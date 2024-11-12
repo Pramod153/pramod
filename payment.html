@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Scanner Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #payment-form {
+            margin: 50px auto;
+            padding: 20px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        #payment-form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        #payment-form input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #payment-form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="payment-form">
+        <h2>Scan Your Payment Code</h2>
+        <form action="/process-payment" method="post">
+            <input type="text" name="paymentCode" placeholder="Scan your QR code here" required>
+            <br>
+            <input type="submit" value="Submit Payment">
+        </form>
+    </div>
+</body>
+</html>

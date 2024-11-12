@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6B73FF 0%, #fafafa 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 110vh;
+            margin: 0;
+            color: #fff;
+        }
+
+        /* Forgot Password Container */
+        .forgot-password-container {
+            background: rgba(255, 255, 255, 0.89);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            color: #333;
+        }
+
+        .forgot-password-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* Form Styles */
+        .forgot-password-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .forgot-password-container input {
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+            color: #333;
+            background: #f9f9f9;
+        }
+
+        .forgot-password-container input::placeholder {
+            color: #888;
+        }
+
+        .forgot-password-container button {
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .forgot-password-container button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .forgot-password-container button:active {
+            background-color: #004085;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 480px) {
+            .forgot-password-container {
+                padding: 30px;
+                width: 90%;
+            }
+
+            .forgot-password-container h2 {
+                font-size: 24px;
+            }
+
+            .forgot-password-container input,
+            .forgot-password-container button {
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="forgot-password-container">
+    <h2>Forgot Password</h2>
+    <form id="forgotPasswordForm" action="forget.html" method="post">
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>

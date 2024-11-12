@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Report</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+button {
+    display: block;
+    width: 200px;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Product Report</h1>
+        <table id="reportTable">
+            <thead>
+                <tr>
+                    <th>Sl. No</th>
+                    <th>Product Name</th>
+                    <th>Product Quantity</th>
+                    <th>Total Price</th>
+                    <th>Sales Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Example Product 1</td>
+                    <td>50</td>
+                    <td>$500</td>
+                    <td>Details about sales</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Example Product 2</td>
+                    <td>30</td>
+                    <td>$300</td>
+                    <td>Details about sales</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+        <button onclick="downloadReport()">Download Report</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+<?php
+include 'adminnav.php';
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "klecet";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT id, name, price, quantity FROM products";
+$result = $conn->query($sql);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - View Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .no-products {
+            text-align: center;
+            color: #888;
+            font-size: 18px;
+            padding: 20px 0;
+        }
+
+        .print-button {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            .container, .container * {
+                visibility: visible;
+            }
+            .container {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+            .print-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Product Report</h1>
+        <div class="print-button" onclick="window.print()">Print Report</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . $row["id"] . "</td>";
+                        echo "<td>" . $row["name"] . "</td>";
+                        echo "<td>" . $row["price"] . "</td>";
+                        echo "<td>" . $row["quantity"] . "</td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='4' class='no-products'>No products found</td></tr>";
+                }
+                $conn->close();
+                ?>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+<?php
+include 'adminnav.php';
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "klecet";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch product data
+$sql_products = "SELECT id, name, price, quantity FROM products";
+$result_products = $conn->query($sql_products);
+
+// Fetch total remaining products
+$sql_total_quantity = "SELECT SUM(quantity) as total_quantity FROM products";
+$result_total_quantity = $conn->query($sql_total_quantity);
+$total_quantity = $result_total_quantity->fetch_assoc()['total_quantity'];
+
+// // Fetch total daily income
+// $sql_total_income = "SELECT SUM(payment_amount) as total_income FROM payments WHERE DATE(payment_date) = CURDATE()";
+// $result_total_income = $conn->query($sql_total_income);
+// $total_income = $result_total_income->fetch_assoc()['total_income'] ?? 0;
+
+// Fetch payment details
+$sql_payments = "SELECT payment_id, student_usn, product_name, payment_amount, payment_date FROM payments";
+$result_payments = $conn->query($sql_payments);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - View Products and Payments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .no-products, .no-payments {
+            text-align: center;
+            color: #888;
+            font-size: 18px;
+            padding: 20px 0;
+        }
+
+        .print-button {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            .container, .container * {
+                visibility: visible;
+            }
+            .container {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+            .print-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Product Report</h1>
+        <div class="print-button" onclick="window.print()">Print Report</div>
+
+        <h2>Remaining Products in Store: <?php echo $total_quantity; ?></h2>
+        <h2>Total Daily Income: ₹<?php echo number_format($total_income, 2); ?></h2>
+
+        <h2>Products</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                if ($result_products->num_rows > 0) {
+                    while($row = $result_products->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . $row["id"] . "</td>";
+                        echo "<td>" . $row["name"] . "</td>";
+                        echo "<td>₹" . number_format($row["price"], 2) . "</td>";
+                        echo "<td>" . $row["quantity"] . "</td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='4' class='no-products'>No products found</td></tr>";
+                }
+                ?>
+            </tbody>
+        </table>
+
+        <h2>Payment Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Payment ID</th>
+                    <th>Student USN</th>
+                    <th>Product Name</th>
+                    <th>Payment Amount</th>
+                    <th>Payment Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                if ($result_payments->num_rows > 0) {
+                    while($row = $result_payments->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . $row["payment_id"] . "</td>";
+                        echo "<td>" . $row["student_usn"] . "</td>";
+                        echo "<td>" . $row["product_name"] . "</td>";
+                        echo "<td>₹" . number_format($row["payment_amount"], 2) . "</td>";
+                        echo "<td>" . $row["payment_date"] . "</td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='5' class='no-payments'>No payments found</td></tr>";
+                }
+                $conn->close();
+                ?>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

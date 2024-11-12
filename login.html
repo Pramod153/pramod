@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6B73FF 0%, #fafafa 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 110vh;
+            margin: 0;
+            color: #fff;
+        }
+
+        /* Login Container */
+        .login-container {
+            background: rgba(255, 255, 255, 0.89);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            color: #333;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* Form Styles */
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-container input {
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+            color: #333;
+            background: #f9f9f9;
+        }
+
+        .login-container input::placeholder {
+            color: #888;
+        }
+
+        .login-container button {
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .login-container button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .login-container button:active {
+            background-color: #004085;
+        }
+
+        /* Link Styles */
+        .signup_link {
+            margin-top: 15px;
+            color: #007BFF;
+        }
+
+        .signup_link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .signup_link a:hover {
+            text-decoration: underline;
+        }
+
+        .pass {
+            margin-top: 10px;
+            color: #007BFF;
+            cursor: pointer;
+        }
+
+        .pass:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 30px;
+                width: 90%;
+            }
+
+            .login-container h2 {
+                font-size: 24px;
+            }
+
+            .login-container input,
+            .login-container button {
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm" action="studentlogin.php" method="post">
+        <input type="text" name="usn" placeholder="USN" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+    <div class="pass">
+        <a href="resetpassword.html">Forgot Password?</a>
+    </div>
+    <div class="signup_link">
+        Not a Member? <a href="signup1.html">Signup</a>
+    </div>
+</div>
+
+</body>
+</html>

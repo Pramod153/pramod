@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e9edf1, #f1dbdb, #bebbb7);
+            margin: 0;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Container */
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(245, 243, 243, 0.5);
+            max-width: 900px;
+            width: 100%;
+        }
+
+        h1, h2 {
+            color: #0c0c0c;
+            text-align: center;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 16px;
+            color: #0e0d0d;
+            text-align: justify;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .profile:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile img {
+            max-width: 120px;
+            border-radius: 50%;
+            margin-right: 20px;
+            border: 4px solid #161616;
+        }
+
+        .profile-details {
+            flex: 1;
+        }
+
+        .profile-details h3 {
+            margin: 0;
+            font-size: 22px;
+            color: #0c0c0c;
+        }
+
+        .profile-details p {
+            margin: 10px 0 0;
+            color: #0a0a0a;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .profile {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 10px;
+            }
+
+            .profile img {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>About Us</h1>
+
+    <div class="section" id="aboutUs">
+        <h2>kle society</h2>
+        <p>Welcome to our institution. We are dedicated to providing the best education and fostering a nurturing environment for our students. Our mission is to equip students with the skills and knowledge required to excel in their careers and contribute positively to society. Our core values include integrity, excellence, and inclusivity, which guide our approach to education and community engagement.</p>
+    </div>
+
+    <div class="section" id="principalDetails">
+        <h2>Principal Details</h2>
+        <div class="profile">
+            <img src="pic6.jpg" alt="Principal">
+            <div class="profile-details">
+                <h3>Dr. Prasad B. Rampure</h3>
+                <p> Rural empowerment through education has been the cornerstone of the efforts of the KLE Society since inception. The objective of taking "Technical Education" right to the doorstep of the rural citizens, led to the establishment of KLE College of Engineering and Technology, Chikodi. With 07 batches of engineers to our credit since 2008, we take pride in our accomplishments to date. Our students have established their mark in across multiple domains of responsibility.
+                    KLE Society spares no effort in equipping its institutions of learning and consequently, KLECET is blessed with a wonderful infrastructure that provides for a unique learning experience. The services of dedicated, experienced and knowledgable faculty members have been the defining force of our successes. Having evolved add on experiences that provide a unique combination of theory and practice, we have also established systems for individual and collective mentoring. Every student under our care is part of a unique learning experience which nurtures a skilled, creative and innovative engineering professional who adds value to both the profession, society and the nation. It is in the future of our students that we find our inspiration and pride.
+                    Dr. Prasad B. Rampure Principal</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="adminDetails">
+        <h2>Admin Details</h2>
+        <div class="profile">
+            <img src="pic7.jpg" alt="Admin 1">
+            <div class="profile-details">
+                <h3>Prof. Raju M. Hebbale</h3>
+                <p> M Tech (VLSI Design & Embedded System)
+                    Assistant Professor & Admission Coordinator
+                    Research Interests: Low Power VLSI Design
+                    E-Mail: raju.hebbale@klecet.edu.in, raju.hebbale@gmail.com
+                    Cell No: +91-9886636563</p>
+            </div>
+        </div>
+        <!-- <div class="profile">
+            <img src="admin2.jpg" alt="Admin 2">
+            <div class="profile-details">
+                <h3>Robert Brown</h3>
+                <p>Robert Brown is responsible for student affairs and support services. His role involves coordinating with different departments to provide students with the best possible experience and addressing their needs effectively. Robert's dedication to student welfare has significantly enhanced our student support framework.</p>
+            </div>
+        </div> -->
+    </div>
+</div>
+
+</body>
+</html>
